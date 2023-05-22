@@ -1,20 +1,16 @@
-#!bin/python
+#!/usr/bin/env python3
 from sys import argv
 from os import getenv
 from github import Github
 from github.GithubException import *
 
-token = getenv('GH_TOKEN') or None
+token = None
 
 username = argv[1] if len(argv) > 1 else None
 
 if not username:
   print(f'usage: {argv[0]} username')
   exit()
-
-if not token:
-  print('Need a valid token set')
-
 
 g = Github(token)
 
